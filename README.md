@@ -1,1 +1,1 @@
-# vue_basics
+# vue_js_basics
