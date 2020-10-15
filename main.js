@@ -1,6 +1,7 @@
 const app = Vue.createApp({
   data() {
     return {
+      inStock: false,
       product: "Socks",
       image: "./assets/images/socks_green.jpg",
       // solution
@@ -10,10 +11,21 @@ const app = Vue.createApp({
       sale: false,
       details: ["50% cotton", "30% wool", "20% polyster"],
       variants: [
-        { id: 1, color: "red" },
-        { id: 2, color: "green" },
-        { id: 3, color: "yellow" },
+        { id: 1, color: "green", image: "./assets/images/socks_green.jpg" },
+        { id: 2, color: "blue", image: "./assets/images/socks_blue.jpg" },
       ],
+      cart: 0,
     };
+  },
+
+  methods: {
+    deleteCart() {
+      if (this.cart == 0) {
+        this.cart = 0;
+      } else this.cart -= 1;
+    },
+    UpdateImage(variantImage) {
+      this.image = variantImage;
+    },
   },
 });
